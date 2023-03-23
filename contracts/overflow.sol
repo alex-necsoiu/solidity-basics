@@ -1,6 +1,6 @@
 
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity ^0.8;
 
 // This contract is designed to act as a time vault.
 // User can deposit into this contract but cannot withdraw for atleast a week.
@@ -39,5 +39,9 @@ contract TimeLock {
 
         (bool sent, ) = msg.sender.call{value: amount}("");
         require(sent, "Failed to send Ether");
+    }
+
+    function getBalance() public view  returns(uint){
+            return balances[msg.sender];
     }
 }

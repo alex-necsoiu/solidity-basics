@@ -23,8 +23,6 @@ contract CustomError{
         owner.transfer(address(this).balance);
     }
 
-
-
     function double(uint x) public returns(uint){
         // Use auxiliar helper outside of the contract
         return h1(x);
